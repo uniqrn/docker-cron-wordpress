@@ -10,4 +10,4 @@ COPY pam-cron /etc/pam.d/cron
 COPY htaccess /var/www/html/.htaccess
 
 # cron startup & apache2 up
-RUN awk '{print $0 ((NR==3)?"\nservice cron start\n":"")}'
+RUN awk '{print $0 ((NR==3)?"\nservice cron start\n":"")}' /usr/local/bin/docker-entrypoint.sh
