@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y  git cron \
 
 COPY pam-cron /etc/pam.d/cron
 
+WORKDIR /var/www/html
+RUN tar cf - --one-file-system -C /usr/src/wordpress . | tar xf -
+
 # COPY refresh /.refresh
 COPY htaccess /var/www/html/.htaccess
 
