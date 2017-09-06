@@ -10,5 +10,4 @@ COPY pam-cron /etc/pam.d/cron
 COPY htaccess /var/www/html/.htaccess
 
 # cron startup & apache2 up
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+RUN awk '{print $0 ((NR==3)?"\nservice cron start\n":"")}'
