@@ -1,7 +1,7 @@
 FROM wordpress:php7.1-apache
 LABEL maintainer "unicorn research Ltd."
 
-RUN apt-get update && apt-get install -y --no-install-recommends git cron \
+RUN apt-get update && apt-get install -y --no-install-recommends git cron ssh \
     && rm -rf /var/lib/apt/lists/*
 
 COPY pam-cron /etc/pam.d/cron
