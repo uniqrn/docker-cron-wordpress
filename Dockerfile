@@ -1,4 +1,4 @@
-FROM wordpress:php7.1-apache
+FROM wordpress:php7.2-apache
 LABEL maintainer "unicorn research Ltd."
 
 RUN apt-get update && apt-get install -y --no-install-recommends git cron ssh \
