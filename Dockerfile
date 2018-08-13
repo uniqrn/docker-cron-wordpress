@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends git cron ssh \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pecl install APCu \
-    && docker-php-ext-enable apcu
+    && docker-php-ext-enable apcu \
+    && docker-php-ext-install pdo_mysql
 
 COPY pam-cron /etc/pam.d/cron
 
