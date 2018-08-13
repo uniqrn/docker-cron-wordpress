@@ -4,6 +4,9 @@ LABEL maintainer "unicorn research Ltd."
 RUN apt-get update && apt-get install -y --no-install-recommends git cron ssh \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pecl install APCu \
+    && docker-php-ext-enable apcu
+
 COPY pam-cron /etc/pam.d/cron
 
 # cron startup & apache2 up
